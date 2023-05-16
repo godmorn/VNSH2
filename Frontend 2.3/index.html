@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #map {
+        width: 50%;
+        height: 50%;
+        margin: 25%;
+        margin-top: 12.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <base target="_blank" />
+    <div id="map"></div>
+    <script>
+      DG.then(function () {
+        var map,
+          marker0,
+          marker1,
+          marker2,
+          marker3,
+          marker5,
+          marker6,
+          marker7,
+          marker8,
+          marker9,
+          marker10,
+          marker12,
+          marker14,
+          group;
+
+        map = DG.map("map", {
+          center: [53.20869, 50.124636],
+          zoom: 15,
+        });
+        myIcon = DG.icon({
+          iconUrl:
+            "https://s2.stc.all.kpcdn.net/putevoditel/projectid_534672/images/tild3639-6439-4731-b062-353934313536__212.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon1 = DG.icon({
+          iconUrl:
+            "https://i3.photo.2gis.com/images/branch/18/2533274825686547_3a28.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon2 = DG.icon({
+          iconUrl:
+            "https://avatars.mds.yandex.net/get-altay/2419289/2a0000017457a949d31797d4050deaafd3cd/XXXL",
+          iconSize: [35, 35],
+        });
+        myIcon3 = DG.icon({
+          iconUrl:
+            "https://fastly.4sqi.net/img/general/600x600/52106392_ywCcdiQQfLpxMpjYviw2Y-wHr6SihtM5GphJDKvLvNM.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon5 = DG.icon({
+          iconUrl:
+            "http://studentlife.samgtu.ru/sites/studentlife.samgtu.ru/files/k5.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon6 = DG.icon({
+          iconUrl:
+            "https://avatars.mds.yandex.net/get-altay/1245631/2a0000016893c0382c1f43c956a85656256a/XXL",
+          iconSize: [35, 35],
+        });
+        myIcon7 = DG.icon({
+          iconUrl:
+            "https://avatars.mds.yandex.net/get-altay/2930751/2a000001750811689dfc1d31561a04138c52/XXXL",
+          iconSize: [35, 35],
+        });
+        myIcon8 = DG.icon({
+          iconUrl:
+            "https://avatars.mds.yandex.net/get-altay/1363018/2a0000016549e192add362e56b35fa5559c1/XXL",
+          iconSize: [35, 35],
+        });
+        myIcon9 = DG.icon({
+          iconUrl:
+            "http://studentlife.samgtu.ru/sites/studentlife.samgtu.ru/files/k9.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon10 = DG.icon({
+          iconUrl:
+            "http://studentlife.samgtu.ru/sites/studentlife.samgtu.ru/files/k10.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon12 = DG.icon({
+          iconUrl:
+            "https://vsedomarossii.ru/photos/area_63/city_2468/street_698/12821_10.jpg",
+          iconSize: [35, 35],
+        });
+        myIcon14 = DG.icon({
+          iconUrl:
+            "https://avatars.mds.yandex.net/get-images-cbir/8304127/sPchpE0paB9bsAg6z54Rww5518/ocr",
+          iconSize: [35, 35],
+        });
+        marker0 = DG.marker([53.209435, 50.123528], { icon: myIcon })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/contacts">' +
+              "Главный корпус Самгту" +
+              "<br>" +
+              "Молодогвардейская улица, 244"
+          )
+          .bindLabel("Главный корпус Самгту");
+        marker1 = DG.marker([53.209769, 50.124389], { icon: myIcon1 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/etf">' +
+              "Корпус № 1" +
+              "<br>" +
+              "ул. Первомайская, 18"
+          )
+          .bindLabel("1 корпус Самгту");
+        marker2 = DG.marker([53.196118, 50.094875], { icon: myIcon2 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/bachelors/bachelors-faculty-htf">' +
+              "Корпус № 2" +
+              "<br>" +
+              "ул. Куйбышева, 153"
+          )
+          .bindLabel("2 корпус Самгту");
+        marker3 = DG.marker([53.199131, 50.105008], { icon: myIcon3 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/fmmt">' +
+              "Корпус № 3" +
+              "<br>" +
+              "ул. Молодогвардейская, 133"
+          )
+          .bindLabel("3 корпус Самгту");
+        marker5 = DG.marker([53.198597, 50.105942], { icon: myIcon5 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://military.samgtu.ru/">' +
+              "Корпус № 5" +
+              "<br>" +
+              "ул. Вилоновская, 22а"
+          )
+          .bindLabel("5 корпус Самгту");
+        marker6 = DG.marker([53.196539, 50.105889], { icon: myIcon6 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/tef/">' +
+              "Корпус № 6" +
+              "<br>" +
+              " ул. Галактионовская, 141"
+          )
+          .bindLabel("6 корпус Самгту");
+        marker7 = DG.marker([53.209051, 50.122034], { icon: myIcon7 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/bachelors/bachelors-faculty-itf">' +
+              "Корпус № 7" +
+              "<br>" +
+              "ул. Первомайская, 1"
+          )
+          .bindLabel("7 корпус Самгту");
+        marker8 = DG.marker([53.209367, 50.125873], { icon: myIcon8 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/iait">' +
+              "Корпус № 8" +
+              "<br>" +
+              "ул. Молодогвардейская, 244"
+          )
+          .bindLabel("8 корпус Самгту");
+        marker9 = DG.marker([53.207739, 50.128607], { icon: myIcon9 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/ingt">' +
+              "Корпус № 9" +
+              "<br>" +
+              " ул. Ново-Садовая, 10"
+          )
+          .bindLabel("9 корпус Самгту");
+        marker10 = DG.marker([53.208624, 50.128145], { icon: myIcon10 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/fvis">' +
+              "Корпус № 10" +
+              "<br>" +
+              "ул. Циолковского, 1"
+          )
+          .bindLabel("10 корпус Самгту");
+        marker12 = DG.marker([53.200976, 50.104838], { icon: myIcon12 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/af">' +
+              "Корпус № 12" +
+              "<br>" +
+              "ул. Молодогвардейская,194"
+          )
+          .bindLabel("12 корпус Самгту");
+        marker14 = DG.marker([53.208456, 50.129811], { icon: myIcon14 })
+          .addTo(map)
+          .bindPopup(
+            '<a href="https://samgtu.ru/tracks/coworking">' +
+              "Корпус № 14" +
+              "<br>" +
+              "ул. Ново-садовая, 14"
+          )
+          .bindLabel("14 корпус Самгту");
+        group = DG.featureGroup([
+          marker0,
+          marker1,
+          marker2,
+          marker3,
+          marker5,
+          marker6,
+          marker7,
+          marker8,
+          marker9,
+          marker10,
+          marker12,
+          marker14,
+        ]);
+        group.on("click", function (e) {
+          map.setView([e.latlng.lat, e.latlng.lng]);
+        });
+      });
+    </script>
+  </body>
+</html>

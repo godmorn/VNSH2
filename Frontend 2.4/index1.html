@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #map {
+        width: 50%;
+        height: 50%;
+        margin: 25%;
+        margin-top: 12.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <base target="_blank" />
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <div id="removelastcoord" onclick="removelastcoord()">отменить</div>
+    Вы кликнули в: <span id="clicked_element">никуда</span>
+    <div id="saveway" onclick="saveway();" style="cursor: pointer">
+      save way
+    </div>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() + (max - min)) + min;
+      }
+      var map;
+      var colors = ["blue", "green", "red"];
+      var coords = [];
+      var polyline;
+
+      let ways = [];
+      clickedElement = document.getElementById("clicked_element");
+      DG.then(function () {
+        map = DG.map("map", {
+          center: [53.20869, 50.124636],
+          zoom: 15,
+        });
+        map.on("click", function (e) {
+          coords.push([e.latlng.lat, e.latlng.lng]);
+          if (!polyline) {
+            polyline = DG.polyline(coords, {
+              color: colors[getRandomInt(0, colors.length - 1)],
+            }).addTo(map);
+          } else {
+            polyline.setLatLngs(coords).redraw();
+          }
+          clickedElement.innerHTML +=
+            "[" + e.latlng.lat + ", " + e.latlng.lng + "]";
+        });
+      });
+      var removelastcoord = () => {
+        DG.then(function () {
+          coords.pop();
+          console.log(coords);
+          polyline.setLatLngs(coords).redraw();
+        });
+      };
+      var saveway = () => {
+        DG.then(function () {
+          ways[ways.length + 1] = prompt("Name?", "type here...");
+          ways[ways.length + 2] = coords;
+          coords = [];
+          console.log(ways);
+          polyline.setLatLngs(coords).redraw();
+        });
+      };
+    </script>
+  </body>
+</html>
